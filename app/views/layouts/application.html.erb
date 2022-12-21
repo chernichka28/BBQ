@@ -14,30 +14,44 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
       <div class="container">
-        <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
+        <%= link_to "BBQ!", root_path, class: "navbar-brand btn btn-light" %>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <% if user_signed_in? %>
-              <li class="nav-item">
-                <%= link_to 'Профиль', current_user, class: "nav-link" %>
+              <li class="nav-item mx-1">
+                <%= link_to 'Профиль', current_user, class: "nav-link btn btn-light" %>
               </li>
-              <li class="nav-item">
-                <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: "nav-link" %>
+              <li class="nav-item mx-1">
+                <%= button_to 'Выйти', destroy_user_session_path, method: :delete, class: "nav-link btn btn-light" %>
               </li>
             <% else %>
-              <li class="nav-item">
-                <%= link_to 'Войти', new_user_session_path, class: "nav-link" %>
+              <li class="nav-item mx-1">
+                <%= link_to 'Войти', new_user_session_path, class: "nav-link btn btn-light" %>
               </li>
-              <li class="nav-item">
-                <%= link_to 'Зарегистрироваться', new_user_registration_path, class: "nav-link" %>
+              <li class="nav-item mx-1">
+                <%= link_to 'Зарегистрироваться', new_user_registration_path, class: "nav-link btn btn-light" %>
               </li>
             <% end %>
           </ul>
         </div>
       </div>
     </nav>
-
+    
     <div class="container mt-5">
+      <div class="row justify-content-center">
+        <% flash.each do |key, value| %>
+          <div class="<%= flash_class(key) %> col-6 row" role="alert">
+            <div class="col-10 fw-bold">
+              <%= value %>
+            </div>
+
+            <div class="col-2">
+              <button type="button" class="btn-close mx-5" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
       <%= yield %>
     </div>
   </body>

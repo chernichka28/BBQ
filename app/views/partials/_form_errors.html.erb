@@ -1,15 +1,23 @@
 <% errors = model.errors %>
 
 <% if errors.any? %>
-  <div class="alert alert-danger">
-    <div class="lead buffer-bottom">
-      В вашей форме <%= errors.count %> ошибок
-    </div>
+  <div class="container">
+    <div class="alert alert-danger row">
+      <div class="col-11">
+        <div class="lead buffer-bottom">
+          В вашей форме <%= errors.count %> ошибок
+        </div>
 
-    <ul>
-      <% errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+        <ul>
+          <% errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="col-1 justify-content-center">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>  
+      </div>
+    </div>
   </div>
 <% end %>
