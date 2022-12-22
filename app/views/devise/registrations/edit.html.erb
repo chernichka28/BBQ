@@ -45,7 +45,7 @@
 
       <h3>Удалить мой аккаунт</h3>
 
-      <p>Не понравилось? <%= button_to "Удалить", registration_path(resource_name), data: { turbo_confirm: I18n.t("confirmation.messages.user") }, method: :delete, class: "btn btn-danger" %></p>
+      <p>Не понравилось? <%= button_to "Удалить", registration_path(resource_name), data: { turbo_confirm: t("confirmation.messages.user") }, method: :delete, class: "btn btn-danger" %></p>
 
       <%= link_to "Назад ", :back %>
     </div> 

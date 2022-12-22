@@ -21,7 +21,7 @@
             </div>
 
             <div class="buffer-both">
-              <%= button_to "Удалить", event_path(@event), method: :delete, data: { turbo_confirm: I18n.t("confirmation.messages.event") }, class: "btn btn-danger" %>
+              <%= button_to "Удалить", event_path(@event), method: :delete, data: { turbo_confirm: t("confirmation.messages.event") }, class: "btn btn-danger" %>
             </div>
           <% end %>
         </div>
