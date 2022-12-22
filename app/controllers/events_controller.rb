@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_event, only: [:show]
+  before_action :set_event, only: [:show, :destroy]
   before_action :set_current_user_event, only: [:edit, :update, :destroy]
 
   def index
@@ -38,7 +38,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_url, notice: I18n.t("controllers.events.destroyed")
+    redirect_to root_path, notice: I18n.t("controllers.events.destroyed")
   end
 
   private

@@ -1,8 +1,8 @@
 <div class="event">
   <div class="event-info row">
     <div class="col-md-12">
-      <%= content_tag 'div', '', class: 'event-background',
-        style: "background-image: url(#{asset_path('event.jpg')})" %>
+      <%= content_tag "div", "", class: "event-background",
+        style: "background-image: url(#{asset_path("event.jpg")})" %>
 
       <div class="event-info-inner row py-5 rounded">
         <div class="col-md-6">
@@ -16,9 +16,13 @@
 
           <% if current_user_can_edit?(@event) %>
             <div class="buffer-both">
-              <%= link_to 'Изменить', edit_event_path(@event),
-                class: 'btn btn-primary' %>
-             </div>
+              <%= link_to "Изменить", edit_event_path(@event),
+                class: "btn btn-primary" %>
+            </div>
+
+            <div class="buffer-both">
+              <%= button_to "Удалить", event_path(@event), method: :delete, data: { turbo_confirm: I18n.t("confirmation.messages.event") }, class: "btn btn-danger" %>
+            </div>
           <% end %>
         </div>
       </div>

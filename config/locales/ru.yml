@@ -35,4 +35,8 @@ ru:
         many: "%{count} ошибок:"
         other: "%{count} ошибка:"
 
+  confirmation:
+    messages:
+      event: "Вы точно хотите удалить событие?"
+      user: "Вы точно хотите удалить этот аккаунт?"
   
