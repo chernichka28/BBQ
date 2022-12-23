@@ -22,5 +22,5 @@ class Subscription < ApplicationRecord
     else
       super
     end
-end
+  end
 end

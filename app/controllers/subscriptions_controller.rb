@@ -1,25 +1,26 @@
 class SubscriptionsController < ApplicationController
   before_action :set_event, only: [:create, :destroy]
-
   before_action :set_subscription, only: [:destroy]
+
+  before_action :check_email, only: [:create]
 
   def create
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
     if @new_subscription.save
-      redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
+      redirect_to @event, notice: I18n.t("controllers.subscriptions.created")
     else
-      render 'events/show', alert: I18n.t('controllers.subscriptions.error')
+      render "events/show", alert: I18n.t("controllers.subscriptions.error")
     end
   end
 
   def destroy
-    message = {notice: I18n.t('controllers.subscriptions.destroyed')}
+    message = {notice: I18n.t("controllers.subscriptions.destroyed")}
     if current_user_can_edit?(@subscription)
       @subscription.destroy
     else
-      message = {alert: I18n.t('controllers.subscriptions.error')}
+      message = {alert: I18n.t("controllers.subscriptions.error")}
     end
 
     redirect_to @event, message
@@ -36,5 +37,12 @@ class SubscriptionsController < ApplicationController
 
     def subscription_params
       params.fetch(:subscription, {}).permit(:user_email, :user_name)
+    end
+
+    def check_email
+      email = params[:subscription][:user_email] unless current_user.present?
+      if email.present? && User.where(email: email).present?
+        redirect_to @event, alert: I18n.t("controllers.subscriptions.email_taken")
+      end
     end
 end

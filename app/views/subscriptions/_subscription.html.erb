@@ -1,10 +1,10 @@
 <span class="subscription">
-  <div class="row">
-    <div class="col-6">
+  <div class="row my-2">
+    <div class="col-7">
       <% if subscription.user.present? %>
-        <%= render partial: 'users/user', object: subscription.user %>
+        <%= render partial: "users/user", object: subscription.user %>
       <% else %>
-        <em><%= subscription.user_name %></em>
+        <em class="mx-3"><%= subscription.user_name %></em>
       <% end %>
     </div>
 
