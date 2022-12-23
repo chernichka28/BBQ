@@ -12,4 +12,8 @@ module ApplicationHelper
         when "alert" then "alert alert-danger"
     end
   end
+
+  def fa_icon(icon_class)
+    content_tag 'span', '', class: "fa fa-#{icon_class}"
+  end
 end
