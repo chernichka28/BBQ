@@ -9,7 +9,9 @@ class Subscription < ApplicationRecord
 
   validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
 
-  validates :user_email, exclusion: { in: User.pluck(:email)}, unless: -> { user.present? }
+  validates_each :user_email, unless: -> { user.present? } do |record, attr, value|
+    record.errors.add(attr, "Пользователь с такой почтой существует!") if User.find_by(email: value).present?
+  end
 
   before_save :check_email
 
