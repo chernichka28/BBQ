@@ -2,18 +2,17 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  validates :user_name, presence: true, unless: -> { user.present? }
-  validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/, unless: -> { user.present? }
-
-  validates :user, uniqueness: {scope: :event_id}, if: -> { user.present? }
-
-  validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
-
-  validates_each :user_email, unless: -> { user.present? } do |record, attr, value|
-    record.errors.add(attr, "Пользователь с такой почтой существует!") if User.find_by(email: value).present?
+  with_options if: -> { user.present? } do
+    validates :user, uniqueness: {scope: :event_id}
+    validate :user_check_email
   end
 
-  before_save :check_email
+  with_options unless: -> { user.present? } do
+    validates :user_name, presence: true
+    validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/
+    validates :user_email, uniqueness: {scope: :event_id}
+    validate :user_email_exists
+  end
 
   def user_name
     if user.present?
@@ -31,8 +30,13 @@ class Subscription < ApplicationRecord
     end
   end
 
-  def check_email
-    self.destroy if user == event.user
+  private
+
+  def user_check_email
+    errors.add(:base, :email_already_in_base) if user == event.user
   end
 
+  def user_email_exists
+    errors.add(:base, :email_already_in_use) if User.find_by(email: user_email).present?
+  end
 end
