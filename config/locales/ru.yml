@@ -3,6 +3,7 @@ ru:
     models:
       user: 'Пользователь'
       event: 'Событие'
+      photo: 'Фотография'
 
     errors:
       models:
@@ -16,6 +17,7 @@ ru:
       user:
         email: 'Email'
         name: 'Имя'
+        avatar: 'Фото'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
       event:
@@ -23,6 +25,8 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      photo:
+        photo: 'Фотография'
 
   controllers:
     events:
@@ -39,6 +43,10 @@ ru:
       created: 'Вы подписаны на это событие'
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
+    photos:
+      error: 'Что-то не так с фоткой'
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотку'
 
   errors:
     messages:

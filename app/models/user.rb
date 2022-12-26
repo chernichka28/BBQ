@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 35}
 
+  mount_uploader :avatar, AvatarUploader
+
   before_validation :set_name, on: :create
   after_commit :link_subscriptions, on: :create
 

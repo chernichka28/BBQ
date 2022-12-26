@@ -1,0 +1,9 @@
+<div class="buffer-bottom row bg-light rounded-5 px-5">
+  <div class="col-md-8">
+    <div class="event-photo buffer-both">
+      <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url %>
+
+      Добавил <%= render partial: 'users/user', object: photo.user %>
+    </div>
+  </div>
+</div>
