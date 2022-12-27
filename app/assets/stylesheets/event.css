@@ -23,7 +23,7 @@
   -ms-filter: blur(5px);
 }
 
-.event-description * {
+.event-description {
   color: white;
 }
 

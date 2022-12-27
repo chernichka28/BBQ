@@ -9,8 +9,14 @@
           <div class="event-description">
             <h1><%= @event.title %></h1>
             <h3><%= l @event.datetime, format: :long %></h3>
-            <h3><small><%= link_to @event.address,
-                "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
+            <h3><small><%= link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}" %></small>
+            </h3>
+
+            <div id="map" class="text-dark"
+              data-address= '<%= @event.address %>'
+              style="width: 100%; height: 400px;">
+            </div>
+
             <p><%= @event.description %></p>
           </div>
 
