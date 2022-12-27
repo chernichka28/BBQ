@@ -16,6 +16,7 @@ gem "devise-i18n"
 gem "rails-i18n"
 gem "carrierwave"
 gem "rmagick"
+gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 

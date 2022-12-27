@@ -35,9 +35,11 @@
         <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
       </div>
       
-      <div class="event-photo-form">
-        <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
-      </div>
+      <% if current_user.present? %>
+        <div class="event-photo-form">
+          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+        </div>
+      <% end %>
 
       <div class="event-comments buffer-top">
         <%= render partial: 'comments/form',
