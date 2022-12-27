@@ -1,9 +1,20 @@
 <div class="buffer-bottom row bg-light rounded-5 px-5">
-  <div class="col-md-8">
+  <div class="col-md-10">
     <div class="event-photo buffer-both">
       <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url %>
 
       Добавил <%= render partial: 'users/user', object: photo.user %>
     </div>
+  </div>
+
+  <div class="col-md-1 mt-md-5 mb-1">
+    <% if current_user_can_edit?(photo) %>
+      <%= button_to "", 
+        event_photo_path(photo.event, photo), 
+        method: :delete, 
+        data: {turbo_confirm: t("confirmation.messages.photo")},
+        class: "btn btn-danger icon-trash" 
+      %>
+    <% end %>
   </div>
 </div>

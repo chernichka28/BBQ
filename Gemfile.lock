@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/mailjet/mailjet-gem.git
-  revision: 7c9870f0d8c0a5683931672604d5135429181375
-  specs:
-    mailjet (1.7.2)
-      activesupport (>= 3.1.0)
-      rack (>= 1.4.0)
-      rest-client (>= 2.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -108,6 +99,10 @@ GEM
       devise (>= 4.8.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.11.0)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -136,6 +131,10 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mailjet (1.7.2)
+      activesupport (>= 3.1.0)
+      rack (>= 1.4.0)
+      rest-client (>= 2.0.0)
     marcel (1.0.2)
     method_source (1.0.0)
     mime-types (3.4.1)
@@ -256,9 +255,10 @@ DEPENDENCIES
   debug
   devise
   devise-i18n
+  dotenv-rails
   jbuilder
   jsbundling-rails
-  mailjet!
+  mailjet
   pg
   puma (~> 5.0)
   rails (~> 7.0.4)
