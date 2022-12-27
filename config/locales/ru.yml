@@ -1,9 +1,9 @@
 ru:
   activerecord:
     models:
-      user: 'Пользователь'
-      event: 'Событие'
-      photo: 'Фотография'
+      user: "Пользователь"
+      event: "Событие"
+      photo: "Фотография"
 
     errors:
       models:
@@ -13,40 +13,41 @@ ru:
               email_already_in_use: "Пользователь с такой почтой уже существует!"
               email_already_in_base: "Вы сами это организовали!!!"
 
+
     attributes:
       user:
-        email: 'Email'
-        name: 'Имя'
-        avatar: 'Фото'
-        password: 'Пароль'
-        password_confirmation: 'Подтверждение пароля'
+        email: "Email"
+        name: "Имя"
+        avatar: "Фото"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
       event:
-        title: 'Название'
-        address: 'Место проведения'
-        datetime: 'Дата и время'
-        description: 'Описание'
+        title: "Название"
+        address: "Место проведения"
+        datetime: "Дата и время"
+        description: "Описание"
       photo:
-        photo: 'Фотография'
+        photo: "Фотография"
 
   controllers:
     events:
-      created: 'Вы создали новое мероприятие'
-      updated: 'Вы обновили мероприятие'
-      destroyed: 'Вы удалили мероприятие :('
+      created: "Вы создали новое мероприятие"
+      updated: "Вы обновили мероприятие"
+      destroyed: "Вы удалили мероприятие :("
     users:
-      updated: 'Вы обновили свой профиль'
+      updated: "Вы обновили свой профиль"
     comments:
-      destroyed: 'Комментарий удален'
-      created: 'Ваш комментарий добавлен'
-      error: 'Ошибка с комментарием'
+      destroyed: "Комментарий удален"
+      created: "Ваш комментарий добавлен"
+      error: "Ошибка с комментарием"
     subscriptions:
-      created: 'Вы подписаны на это событие'
-      destroyed: 'Участник отписан'
-      error: 'Подписка/отписка не сработала'
+      created: "Вы подписаны на это событие"
+      destroyed: "Участник отписан"
+      error: "Подписка/отписка не сработала"
     photos:
-      error: 'Что-то не так с фоткой'
-      created: 'Вы добавили фотографию к событию'
-      destroyed: 'Вы удалили фотку'
+      error: "Что-то не так с фоткой"
+      created: "Вы добавили фотографию к событию"
+      destroyed: "Вы удалили фотку"
 
   errors:
     messages:
@@ -63,4 +64,12 @@ ru:
       comment: "Вы уверены, что хотите удалить этот комментарий?"
       subscription: "Вы уверены, что хотите удалить эту подписку?"
       photo: "Вы уверены, что хотите удалить эту фотку?"
+
+  message_mailer:
+    new_comment:
+      title: "Новый комментарий"
+      author: "Автор"
+      event: "Событие"
+      datetime: "Состоится"
+      owner: "Организатор"
   
