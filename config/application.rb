@@ -23,11 +23,3 @@ module BBQ
     config.generators.system_tests = nil
   end
 end
-
-module Mailjet
-  class Aplication < Rails::Application
-    config.load_defaults 7.0
-    config.generators.system_tests = nil
-    config.action_mailer.delivery_method = :mailjet
-  end
-end
