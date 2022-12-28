@@ -10,8 +10,7 @@ ru:
         subscription:
           attributes:
             user_email:
-              email_already_in_use: "Пользователь с такой почтой уже существует!"
-              email_already_in_base: "Вы сами это организовали!!!"
+              self_subscription: "Вы сами это организовали!"
 
 
     attributes:
