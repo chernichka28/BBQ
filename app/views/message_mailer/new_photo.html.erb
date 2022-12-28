@@ -1,2 +1,17 @@
+<h1><%= t ".title" %></h1>
+
 <p>Пользователь <%= @name %> добавил новое фото к событию <%= @event.title %></p>
+
 <img src="@url" alt="photo">
+
+
+<hr/>
+
+<%= t ".event" %>
+<h3><%= link_to @event.title, "#{root_url}events/#{@event.id}" %></h3>
+
+<%= t ".datetime" %>
+<h4><%= l @event.datetime %></h4>
+
+<%= t ".owner" %>
+<h4><%= @event.user.name %></h4>

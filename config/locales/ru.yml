@@ -77,6 +77,11 @@ ru:
       owner: "Организатор"
     new_photo:
       subject: "Новое фото в @"
+      title: "Новое фото"
+      author: "Автор"
+      event: "Событие"
+      datetime: "Состоится"
+      owner: "Организатор"
 
   views:
     buttons:
