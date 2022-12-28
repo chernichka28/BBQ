@@ -1,5 +1,5 @@
 <span class="subscription">
-  <div class="row my-2">
+  <div class="row my-2" data-controller="subscription">
     <div class="col-7">
       <% if subscription.user.present? %>
         <%= render partial: "users/user", object: subscription.user %>
@@ -13,8 +13,15 @@
         <%= button_to "",
           event_subscription_path(subscription.event, subscription),
           method: :delete,
-          data: {turbo_confirm: t("confirmation.messages.subscription")},
-          class: "btn btn-danger icon-remove-sign mt-2"
+          class: "btn btn-danger icon-remove-sign mt-2",
+          form: {
+            data: {
+              turbo: false,
+              controller: "confirmation",
+              action: 'submit->confirmation#confirm',
+              confirmation_message_value: t("confirmation.messages.subscription"),
+            }
+          }
         %>
       <% end %>
     </div>

@@ -27,7 +27,7 @@
   </div>
 
   <div class="actions my-3">
-    <%= f.submit "Сохранить", class: "btn btn-primary", data: { turbo: false } %>
-    или <%= link_to "вернуться", :back %>
+    <%= f.submit I18n.t("views.buttons.create"), class: "btn btn-primary", data: { turbo: false } %>
+    или <%= link_to I18n.t("views.buttons.back"), :back %>
   </div>
 <% end %>

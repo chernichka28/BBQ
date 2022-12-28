@@ -1,7 +1,7 @@
 <div class="buffer-bottom row bg-light rounded-5 px-5">
   <div class="col-md-8">
     <%= form_for [@event, comment] do |f| %>
-        <%= render partial: 'partials/form_errors', locals: {model: comment} %>
+        <%= render partial: "partials/form_errors", locals: {model: comment} %>
 
         <div class="form-group">
           <%= f.label :Текст_комментария, class: "my-2" %>
@@ -16,7 +16,7 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit 'Отправить', data: {turbo: false}, class: "btn btn-primary my-2" %>
+          <%= f.submit I18n.t("views.buttons.send"), data: {turbo: false}, class: "btn btn-primary my-2" %>
         </div>
     <% end %>
   </div>

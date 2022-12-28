@@ -69,9 +69,46 @@ ru:
 
   message_mailer:
     new_comment:
+      subject: "Новый комментарий в @"
       title: "Новый комментарий"
       author: "Автор"
       event: "Событие"
       datetime: "Состоится"
       owner: "Организатор"
+    new_photo:
+      subject: "Новое фото в @"
+
+  views:
+    buttons:
+      send: "Отправить"
+      save: "Сохранить"
+      create: "Создать"
+      back: "вернуться"
+      delete: "Удалить"
+      edit: "Изменить"
+      upload: "Загрузить"
+      reg: "Зарегистрироваться"
+    event:
+      edit: "Редактировать событие"
+      create: "Создать событие"
+      pincode: "Доступ только по пин-коду"
+      calling: "Зовёт:"
+      will_go: "Пойдут:"
+      i_will_go: "Я пойду:"
+    nav-bar:
+      user: "Профиль"
+      logout: "Выйти"
+      login: "Войти"
+      reg: "Зарегистрироваться"
+    photo: 
+      added: "Добавил"
+    subscription:
+      create: "Подписаться"
+    user:
+      edit: "Редактирование пользователя"
+      change_password: "Сменить пароль"
+      organized: "Организовал"
+      didnt_organize: "Этот пользователь ещё не организовывал события!"
+      forgot_password: "Забыли пароль?"
+      new: "Регистрация"
   

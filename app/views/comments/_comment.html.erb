@@ -16,8 +16,15 @@
       <%= button_to "", 
         event_comment_path(comment.event, comment), 
         method: :delete, 
-        data: {turbo_confirm: t("confirmation.messages.comment")},
-        class: "btn btn-danger icon-trash" 
+        class: "btn btn-danger icon-trash", 
+        form: {
+          data: {
+            turbo: false,
+            controller: "confirmation",
+            action: 'submit->confirmation#confirm',
+            confirmation_message_value: t("confirmation.messages.comment"),
+          }
+        }
       %>
     <% end %>
   </div>
