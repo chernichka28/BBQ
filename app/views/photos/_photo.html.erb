@@ -1,27 +1,51 @@
-<div class="buffer-bottom row bg-light rounded-5 px-5">
-  <div class="col-md-10">
-    <div class="event-photo buffer-both">
-      <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url, class: "mx-2" %>
+<div class="event-photo col-md-3 col-5">
+  <a class="btn" data-bs-toggle="modal" href="#exampleModalToggle<%= index %>" role="button">
+    <img src=<%= photo.photo.thumb.url %> alt="photo">
+  </a>
+  <div class="modal fade" id="exampleModalToggle<%= index %>" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">
+            <%= I18n.t("views.photo.added") %> <%= render partial: 'users/user', object: photo.user %>
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src=<%= photo.photo.url %> class="img-fluid">
+        </div>
+        <div class="modal-footer justify-content-center">
+          <% if index != 0  %>
+            <button class="btn btn-primary icon-long-arrow-left px-5 py-2 mx-sm-5" data-bs-target="#exampleModalToggle<%= index - 1 %>" data-bs-toggle="modal" data-bs-dismiss="modal">
+            </button>
+          <% end %>
 
-      <%= I18n.t("views.photo.added") %> <%= render partial: 'users/user', object: photo.user %>
+          <% if current_user_can_edit?(photo) %>
+            <%= button_to "", 
+              event_photo_path(photo.event, photo), 
+              method: :delete, 
+              class: "btn btn-danger icon-trash px-3 py-2 mx-sm-5", 
+              form: {
+                data: {
+                  turbo: false,
+                  controller: "confirmation",
+                  action: 'submit->confirmation#confirm',
+                  confirmation_message_value: t("confirmation.messages.photo"),
+                }
+              }
+            %>
+          <% end %>
+          
+
+          <% if index != photo.event.photos.count - 1  %>
+            <button class="btn btn-primary icon-long-arrow-right px-5 py-2 mx-sm-5" data-bs-target="#exampleModalToggle<%= index + 1 %>" data-bs-toggle="modal" data-bs-dismiss="modal">
+            </button>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="col-md-1 mt-md-5 mb-1 text-center">
-    <% if current_user_can_edit?(photo) %>
-      <%= button_to "", 
-        event_photo_path(photo.event, photo), 
-        method: :delete, 
-        class: "btn btn-danger icon-trash", 
-        form: {
-          data: {
-            turbo: false,
-            controller: "confirmation",
-            action: 'submit->confirmation#confirm',
-            confirmation_message_value: t("confirmation.messages.photo"),
-          }
-        }
-      %>
-    <% end %>
-  </div>
+  
 </div>
+
