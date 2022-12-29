@@ -4,13 +4,15 @@
         <%= render partial: "partials/form_errors", locals: {model: comment} %>
 
         <div class="form-group">
-          <%= f.label :Текст_комментария, class: "my-2" %>
+          <i class="icon-comment mx-1"></i>
+          <%= f.label I18n.t("views.comment.text"), class: "my-2" %>
           <%= f.text_area :body, class: "form-control my-1" %>
         </div>
 
         <% unless user_signed_in? %>
             <div class="form-group">
-              <%= f.label :user_name %>
+              <i class="icon-user mx-1"></i>
+              <%= f.label I18n.t("views.comment.user_name") %>
               <%= f.text_field :user_name, class: "form-control my-2" %>
             </div>
         <% end %>

@@ -68,14 +68,14 @@ ru:
 
   message_mailer:
     new_comment:
-      subject: "Новый комментарий в @"
+      subject: "Новый комментарий в @%{title}"
       title: "Новый комментарий"
       author: "Автор"
       event: "Событие"
       datetime: "Состоится"
       owner: "Организатор"
     new_photo:
-      subject: "Новое фото в @"
+      subject: "Новое фото в @%{title}"
       title: "Новое фото"
       author: "Автор"
       event: "Событие"
@@ -115,4 +115,35 @@ ru:
       didnt_organize: "Этот пользователь ещё не организовывал события!"
       forgot_password: "Забыли пароль?"
       new: "Регистрация"
+    comment:
+      text: "Текст комментария"
+      user_name: "Ваше имя"
+
+  devise:
+    reset_password_instructions:
+      action: "Изменить пароль"
+      greeting: "Здравствуйте, %{recipient}!"
+      instruction: "Вы (или кто-то еще) запросили изменение пароля. Для изменения пароля нажмите ссылку ниже:"
+      instruction_2: "Если вы не запрашивали изменение пароля - проигнорируйте это сообщение"
+      instruction_3: "Ваш пароль не изменится пока вы не нажмете на ссылку и не введете новый."
+      subject: "Инструкции по восстановлению пароля"
+    passwords:
+      edit:
+        new: "Новый пароль"
+        change_password: "Сменить пароль"
+        confirmation: "Подтвердите новый пароль"
+        min: "символов минимум"
+    registrations:
+      edit:
+        password: "Пароль"
+        pass_info: "оставьте поле пустым, если не хотите менять"
+        pass_confirmation: "Подтверждение пароля"
+        current_pass: "Текущий пароль"
+        pass_cur_info: "он нужен для подтверждения"
+        delete_user: "Удалить мой аккаунт"
+        dont_like: "Не понравилось?"
+    sessions:
+      new:
+        remember_me: "Запомнить меня"
+
   

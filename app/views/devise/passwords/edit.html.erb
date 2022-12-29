@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class="bg-light col-lg-6 col-md-8 px-5 py-3 rounded-5">
-    <h2><%= I18n.t("views.user.change_password") %></h2>
+    <h2><%= t(".change_password") %></h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -8,21 +8,21 @@
 
       <div class="field my-3 col-md-6 col-sm-8">
         <i class="icon-lock mx-1"></i>
-        <%= f.label :password, "Новый пароль" %><br />
+        <%= f.label t(".new") %><br />
         <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> символов минимум)</em><br />
+          <em>(<%= @minimum_password_length %> <%= t(".min") %>)</em><br />
         <% end %>
         <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control mt-2" %>
       </div>
 
       <div class="field my-3 col-md-6 col-sm-8">
         <i class="icon-lock mx-1"></i>
-        <%= f.label :password_confirmation, "Подтвердите новый пароль" %><br />
+        <%= f.label t(".confirmation"), "Подтвердите новый пароль" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mt-2" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Сменить пароль!", class: "btn btn-primary my-2", data: { turbo: false } %>
+        <%= f.submit  t("views.buttons.save"), class: "btn btn-primary my-2", data: { turbo: false } %>
       </div>
     <% end %>
 

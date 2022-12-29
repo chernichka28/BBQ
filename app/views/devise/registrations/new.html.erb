@@ -14,16 +14,16 @@
 
         <div class="field my-3 col-md-6 col-sm-8">
           <i class="icon-lock mx-1"></i>
-          <%= f.label :Пароль %>
+          <%= f.label t("devise.registrations.edit.password") %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> символов минимум)</em>
+          <em>(<%= @minimum_password_length %> <%= t("devise.passwords.edit.min") %>)</em>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control mt-2" %>
         </div>
 
         <div class="field my-3 col-md-6 col-sm-8">
           <i class="icon-lock mx-1"></i>
-          <%= f.label :Подтверждение_пароля %><br />
+          <%= f.label t("devise.registrations.edit.pass_confirmation") %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mt-2" %>
         </div>
 
