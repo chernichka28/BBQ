@@ -3,18 +3,18 @@
   <h1 class="my-4"><%= @user.name %></h1>
 
   <% if @user == current_user %>
-    <p class="buffer-top"><%= link_to I18n.t("views.buttons.edit"), edit_user_path(@user), class: 'btn btn-success' %></p>
+    <p class="buffer-top"><%= link_to t("views.buttons.edit"), edit_user_path(@user), class: "btn btn-success" %></p>
   <% end %>
 
   <div class="row">
     <div class="col-md-12">
       <% if @user.events.any? %>
-        <h3 class="my-4"><%= I18n.t("views.user.organized") %></h3>
+        <h3 class="my-4"><%= t("views.user.organized") %></h3>
         <div class="row">
-          <%= render partial: 'events/event', collection: @user.events %>
+          <%= render partial: "events/event", collection: @user.events %>
         </div>
       <% else %>
-        <h3 class="buffer-top"><%= I18n.t("views.user.didnt_organize") %></h3>
+        <h3 class="buffer-top"><%= t("views.user.didnt_organize") %></h3>
       <% end %>
     </div>
   </div>

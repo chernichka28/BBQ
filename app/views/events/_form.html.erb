@@ -1,5 +1,5 @@
 <%= form_for(@event) do |f| %>
-  <%= render partial: "partials/form_errors", locals: {model: @event} %>
+  <%= render partial: "partials/form_errors", locals: { model: @event } %>
 
   <div class="form-group">
     <%= f.label :title %>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="actions my-3">
-    <%= f.submit I18n.t("views.buttons.create"), class: "btn btn-primary", data: { turbo: false } %>
-    или <%= link_to I18n.t("views.buttons.back"), :back %>
+    <%= f.submit t("views.buttons.create"), class: "btn btn-primary", data: { turbo: false } %>
+    <%= t("views.buttons.or") %> <%= link_to t("views.buttons.back"), :back %>
   </div>
 <% end %>

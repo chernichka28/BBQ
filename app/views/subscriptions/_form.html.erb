@@ -1,19 +1,19 @@
 <%= form_for [@event, subscription] do |f| %>
-    <%= render partial: 'partials/form_errors', locals: {model: subscription} %>
+    <%= render partial: "partials/form_errors", locals: { model: subscription } %>
 
     <% unless user_signed_in? %>
         <div class="form-group">
           <%= f.label :user_name %>
-          <%= f.text_field :user_name, class: 'form-control' %>
+          <%= f.text_field :user_name, class: "form-control" %>
         </div>
 
         <div class="form-group">
           <%= f.label :user_email %>
-          <%= f.text_field :user_email, class: 'form-control' %>
+          <%= f.text_field :user_email, class: "form-control" %>
         </div>
     <% end %>
 
     <div class="actions">
-      <%= f.submit I18n.t("views.subscription.create"), data: {turbo: false}, class: "btn btn-primary mt-3 mb-5" %>
+      <%= f.submit t("views.subscription.create"), data: { turbo: false }, class: "btn btn-primary mt-3 mb-5" %>
     </div>
 <% end %>

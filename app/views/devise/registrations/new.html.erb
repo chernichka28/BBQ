@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class="bg-light col-lg-6 col-md-8 px-5 py-3 rounded-5">
-    <h2 class="pt-2"><%= I18n.t("views.user.new") %></h2>
+    <h2 class="pt-2"><%= t("views.user.new") %></h2>
     
     <div class="row">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -28,7 +28,7 @@
         </div>
 
         <div class="actions col-md-6 col-sm-8">
-          <%= f.submit I18n.t("views.buttons.reg"), class: "btn btn-primary", data: { turbo: false } %>
+          <%= f.submit t("views.buttons.reg"), class: "btn btn-primary", data: { turbo: false } %>
         </div>
       <% end %>
       

@@ -1,10 +1,10 @@
-<%= form_for @user, html: {multipart: true} do |f| %>
-  <%= render partial: 'partials/form_errors', locals: {model: @user} %>
+<%= form_for @user, html: { multipart: true } do |f| %>
+  <%= render partial: "partials/form_errors", locals: { model: @user } %>
 
   <div class="form-group">
     <i class="icon-user mx-1"></i>
     <%= f.label :Имя %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
   <div class="form-group mt-2">
@@ -22,7 +22,7 @@
 
 
   <div class="actions mt-3">
-    <%= f.submit I18n.t("views.buttons.save"), data: {turbo: false}, class: 'btn btn-primary' %>
-    или <%= link_to I18n.t("views.buttons.back"), :back %>
+    <%= f.submit t("views.buttons.save"), data: { turbo: false }, class: "btn btn-primary" %>
+    <%= t("views.buttons.or") %> <%= link_to t("views.buttons.back"), :back %>
   </div>
 <% end %>

@@ -1,16 +1,16 @@
 <div class="buffer-bottom row bg-light rounded-5 px-5">
   <div class="col-md-8">    
     <%= form_for [@event, photo], html: { multipart: true } do |f| %>
-      <%= render partial: 'partials/form_errors', locals: {model: photo} %>
+      <%= render partial: "partials/form_errors", locals: { model: photo } %>
 
       <div class="form-group mt-3">
         <i class="icon-picture mx-1"></i>
         <%= f.label :Фото %>
-        <%= f.file_field :photo, class: 'form-control mt-2' %>
+        <%= f.file_field :photo, class: "form-control mt-2" %>
       </div>
 
       <div class="actions">
-        <%= f.submit I18n.t("views.buttons.upload"), data: {turbo: false}, class: 'btn btn-primary my-2' %>
+        <%= f.submit t("views.buttons.upload"), data: { turbo: false }, class: "btn btn-primary my-2" %>
       </div>
     <% end %>
   </div>

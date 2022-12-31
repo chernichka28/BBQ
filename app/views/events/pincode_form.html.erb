@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class="bg-light col-lg-6 col-md-8 px-5 py-3 rounded-5">
-    <h1><%= I18n.t("views.event.pincode") %></h1>
+    <h1><%= t("views.event.pincode") %></h1>
 
     <%= form_tag("", method: "post") do |f| %>
       <div class="form-group my-3 col-5">
@@ -9,10 +9,10 @@
       </div>
 
       <div class="actions my-3">
-        <%= submit_tag "Отправить!", class: "btn btn-primary", data: { turbo: false } %>
+        <%= submit_tag t("views.buttons.send"), class: "btn btn-primary", data: { turbo: false } %>
       </div>
     <% end %>
 
-    <%= link_to "На главную", events_path %>
+    <%= link_to t("views.buttons.back"), events_path %>
   </div>
 </div>

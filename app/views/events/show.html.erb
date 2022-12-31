@@ -17,12 +17,12 @@
 
           <% if current_user_can_edit?(@event) %>
             <div class="buffer-both">
-              <%= link_to I18n.t("views.buttons.edit"), edit_event_path(@event),
+              <%= link_to t("views.buttons.edit"), edit_event_path(@event),
                 class: "btn btn-primary" %>
             </div>
 
             <div class="buffer-both">
-              <%= button_to I18n.t("views.buttons.delete"), event_path(@event), method: :delete, data: { turbo_confirm: t("confirmation.messages.event") }, class: "btn btn-danger" %>
+              <%= button_to t("views.buttons.delete"), event_path(@event), method: :delete, data: { turbo_confirm: t("confirmation.messages.event") }, class: "btn btn-danger" %>
             </div>
           <% end %>
         </div>
@@ -45,10 +45,10 @@
           <div class="col-md-10">
             <div class="event-photo buffer-both row">
               <% if @event.photos.except(@new_photo).count == 0 %>
-                <h3>Здесь будут фотографии с события!</h3>
+                <h3><%= t("views.event.photos") %></h3>
               <% else %>
                 <% @event.photos.except(@new_photo).each_with_index do |photo, index| %>
-                  <%= render partial: "photos/photo", locals: {photo: photo, index: index} %>
+                  <%= render partial: "photos/photo", locals: { photo: photo, index: index } %>
                 <% end %>
               <% end %>
             </div>
@@ -59,13 +59,13 @@
       
       <% if current_user.present? %>
         <div class="event-photo-form">
-          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+          <%= render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build } %>
         </div>
       <% end %>
 
       <div class="event-comments buffer-top">
         <%= render partial: 'comments/form',
-          locals: {comment: @new_comment || @event.comments.build} %>
+          locals: { comment: @new_comment || @event.comments.build } %>
 
         <div class="buffer-both">
           <%= render partial: 'comments/comment',
@@ -77,13 +77,13 @@
     <div class="col-lg-4">
       <div class=" mx-3 mt-3 rounded-5 bg-light py-3 px-3">
         <div class="event-owner">
-          <h4 class="mt-3"><%= I18n.t("views.event.calling") %></h4>
+          <h4 class="mt-3"><%= t("views.event.calling") %></h4>
             <p><%= render partial: 'users/user', object: @event.user %></p>
         </div>
 
         <% unless @event.subscriptions.count == 0 %>
           <div class="event-subscriptions">
-            <h4><%= I18n.t("views.event.will_go") %></h4>
+            <h4><%= t("views.event.will_go") %></h4>
             <div>
               <p>
               <%= render partial: "subscriptions/subscription",
@@ -95,11 +95,9 @@
 
         <% unless current_user_can_edit?(@event) %>
           <div class="event-subscription-form">
-            <h4><%= I18n.t("views.event.i_will_go") %></h4>
+            <h4><%= t("views.event.i_will_go") %></h4>
             <div>
-              <%= render partial: "subscriptions/form", locals: {
-                subscription: @new_subscription || @event.subscriptions.build
-              } %>
+              <%= render partial: "subscriptions/form", locals: { subscription: @new_subscription || @event.subscriptions.build } %>
             </div>
           </div>
         <% end %>

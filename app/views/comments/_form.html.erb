@@ -5,20 +5,20 @@
 
         <div class="form-group">
           <i class="icon-comment mx-1"></i>
-          <%= f.label I18n.t("views.comment.text"), class: "my-2" %>
+          <%= f.label t("views.comment.text"), class: "my-2" %>
           <%= f.text_area :body, class: "form-control my-1" %>
         </div>
 
         <% unless user_signed_in? %>
             <div class="form-group">
               <i class="icon-user mx-1"></i>
-              <%= f.label I18n.t("views.comment.user_name") %>
+              <%= f.label t("views.comment.user_name") %>
               <%= f.text_field :user_name, class: "form-control my-2" %>
             </div>
         <% end %>
 
         <div class="actions">
-          <%= f.submit I18n.t("views.buttons.send"), data: {turbo: false}, class: "btn btn-primary my-2" %>
+          <%= f.submit t("views.buttons.send"), data: {turbo: false}, class: "btn btn-primary my-2" %>
         </div>
     <% end %>
   </div>
