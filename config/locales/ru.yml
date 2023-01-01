@@ -76,11 +76,12 @@ ru:
       owner: "Организатор"
     new_photo:
       subject: "Новое фото в @%{title}"
-      title: "Новое фото"
+      title: " добавил новое фото к событию "
       author: "Автор"
       event: "Событие"
       datetime: "Состоится"
       owner: "Организатор"
+
 
   views:
     buttons:

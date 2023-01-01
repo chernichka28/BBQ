@@ -1,6 +1,4 @@
-<h1><%= t(".title") %></h1>
-
-<p>Пользователь <%= @name %> добавил новое фото к событию <%= @event.title %></p>
+<h1><%= @name %><%= t(".title") %><%= @event.title %></h1>
 
 <img src="<%= @photo_url %>" alt="photo">
 
@@ -8,7 +6,7 @@
 <hr/>
 
 <%= t(".event") %>
-<h3><%= link_to @event.title, "#{@url}events/#{@event.id}" %></h3>
+<h3><%= link_to @event.title, @event_url %></h3>
 
 <%= t(".datetime") %>
 <h4><%= l @event.datetime %></h4>
