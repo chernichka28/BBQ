@@ -3,7 +3,7 @@
 
   <div class="form-group">
     <i class="icon-user mx-1"></i>
-    <%= f.label :Имя %>
+    <%= f.label t("activerecord.attributes.user.name") %>
     <%= f.text_field :name, class: "form-control" %>
   </div>
 
@@ -15,7 +15,7 @@
 
   <div class="form-group mt-2">
     <i class="icon-picture mx-1"></i>
-    <%= f.label :Фото %>
+    <%= f.label t("activerecord.attributes.user.avatar") %>
     <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
     <%= f.file_field :avatar, class: "form-control mt-2" %>
   </div>
