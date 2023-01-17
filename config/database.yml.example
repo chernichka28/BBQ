@@ -18,4 +18,4 @@ production:
   port: 5432
   database: bbq
   user: bbq
-  password: ENV["PASSWORD_DATABASE_USER"]
+  password: <%= ENV["PASSWORD_DATABASE_USER"] %>

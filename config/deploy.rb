@@ -8,10 +8,11 @@ set :repo_url, "git@github.com:chernichka28/BBQ.git"
 set :deploy_to, "/home/deploy/www/bbq"
 
 # Файлы, которые лежат вне репозитория
-append :linked_files, "config/database.yml", "config/master.key"
+append :linked_files, "config/database.yml", "config/master.key", ".env"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 
 # Default branch is :master
+set :branch, ENV["BRANCH"] if ENV["BRANCH"]
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
