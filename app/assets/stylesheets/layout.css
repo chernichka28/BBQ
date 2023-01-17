@@ -1,7 +1,7 @@
 body {
-  background: rgb(139,226,186);
-  background: linear-gradient(17deg, rgba(139,226,186,1) 0%, rgba(135,194,223,1) 100%);
+  background-image: url("https://oir.mobi/uploads/posts/2021-03/1616967146_6-p-svetlo-serii-fon-6.jpg");
   background-size: cover;
+  backdrop-filter: blur(3px);
   min-height: 100vh;
 }
 
