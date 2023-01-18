@@ -15,7 +15,7 @@
             <p><%= @event.description %></p>
           </div>
 
-          <% if current_user_can_edit?(@event) %>
+          <% if policy(@event).edit? %>
             <div class="buffer-both">
               <%= link_to t("views.buttons.edit"), edit_event_path(@event),
                 class: "btn btn-primary" %>
@@ -93,7 +93,7 @@
           </div>
         <% end %>
 
-        <% unless current_user_can_edit?(@event) %>
+        <% unless policy(@event).edit? %>
           <div class="event-subscription-form">
             <h4><%= t("views.event.i_will_go") %></h4>
             <div>

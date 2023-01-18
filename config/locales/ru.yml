@@ -81,7 +81,8 @@ ru:
       event: "Событие"
       datetime: "Состоится"
       owner: "Организатор"
-
+  pundit:
+    not_authorized: "Отказано в доступе!"
 
   views:
     buttons:
@@ -110,6 +111,8 @@ ru:
     photo: 
       added: "Добавил"
     subscription:
+      name: "Ваше имя"
+      email: "Ваш email"
       create: "Подписаться"
     user:
       edit: "Редактирование пользователя"

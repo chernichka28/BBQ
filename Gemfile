@@ -18,11 +18,14 @@ gem "carrierwave"
 gem "rmagick"
 gem "mailjet"
 gem "dotenv-rails"
+gem "pundit"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -33,9 +36,9 @@ group :development do
   gem "capistrano-rbenv", "~> 2.2"
   gem "capistrano-bundler", "~> 2.1"
 
-  gem 'net-ssh', '>= 6.0.2'
-  gem 'ed25519', '>= 1.2', '< 2.0'
-  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+  gem "net-ssh", ">= 6.0.2"
+  gem "ed25519", ">= 1.2", "< 2.0"
+  gem "bcrypt_pbkdf", ">= 1.0", "< 2.0"
 end
 
 group :production do
