@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   after_action :verify_authorized, except: [:index]
 
   def index
-    @events = Event.all
+    @events = policy_scope(Event)
   end
 
   def show
@@ -21,10 +21,14 @@ class EventsController < ApplicationController
 
   def new
     @event = current_user.events.build
+
+    authorize @event
   end
 
   def create
     @event = current_user.events.build(event_params)
+
+    authorize @event
 
     if @event.save
       redirect_to @event, notice: I18n.t("controllers.events.created")
@@ -67,7 +71,7 @@ class EventsController < ApplicationController
 
   def password_guard!
     return true if @event.pincode.blank?
-    return true if signed_in? && current_user == @event.user
+    return true if policy(@event).edit?
 
     if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
       cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
