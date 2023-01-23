@@ -13,6 +13,12 @@
         </div>
 
         <div class="field my-3 col-md-6 col-sm-8">
+          <i class="icon-user mx-1"></i>
+          <%= f.label t("views.subscription.name") %><br />
+          <%= f.text_field :name, autocomplete: "name", class: "form-control mt-2" %>
+        </div>
+
+        <div class="field my-3 col-md-6 col-sm-8">
           <i class="icon-lock mx-1"></i>
           <%= f.label t("devise.registrations.edit.password") %>
           <% if @minimum_password_length %>

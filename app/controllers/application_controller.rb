@@ -27,4 +27,10 @@ class ApplicationController < ActionController::Base
     flash[:alert] = t("pundit.not_authorized")
     redirect_to(request.referrer || root_path)
   end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  end
 end
