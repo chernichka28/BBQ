@@ -37,10 +37,11 @@ install_plugin Capistrano::SCM::Git
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 
-require 'capistrano/bundler'
-require 'capistrano/rbenv' # или RVM
-require 'capistrano/rails'
-require 'capistrano/passenger'
+require "capistrano/bundler"
+require "capistrano/rbenv" # или RVM
+require "capistrano/rails"
+require "capistrano/passenger"
+require "capistrano-resque"
 
 set :rbenv_type, :user
 set :rbenv_ruby, "3.1.2"

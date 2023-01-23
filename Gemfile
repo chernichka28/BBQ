@@ -19,6 +19,7 @@ gem "rmagick"
 gem "mailjet"
 gem "dotenv-rails"
 gem "pundit"
+gem "resque", "~> 2.4"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
@@ -35,6 +36,7 @@ group :development do
   gem "capistrano-passenger", "~> 0.2"
   gem "capistrano-rbenv", "~> 2.2"
   gem "capistrano-bundler", "~> 2.1"
+  gem "capistrano-resque", "~> 0.2.3", require: false
 
   gem "net-ssh", ">= 6.0.2"
   gem "ed25519", ">= 1.2", "< 2.0"
