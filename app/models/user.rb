@@ -63,7 +63,6 @@ class User < ApplicationRecord
   private
 
   def set_name
-    debugger
     self.name = "User №#{rand(1000)}" if self.name.blank?
   end
 
