@@ -11,12 +11,24 @@
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", 
-      omniauth_authorize_path(resource_name, provider), 
-      data: { turbo: false },
-      method: :post 
-    %>
-    <br />
-  <% end -%>
+    <div class="my-2 row">
+      <% resource_class.omniauth_providers.each do |provider| %>
+        <% case provider %>
+        <% when :github %>
+          <%= button_to content_tag(:i, "", class: "bi bi-github"), 
+            omniauth_authorize_path(resource_name, provider),
+            data: { turbo: false },
+            method: :post,
+            class: "col-2 my-1 px-3 btn btn-outline-primary"
+          %>
+        <% when :vkontakte %>
+          <%= button_to content_tag(:i, "", class: "icon-vk"), 
+            omniauth_authorize_path(resource_name, provider),
+            data: { turbo: false },
+            method: :post,
+            class: "col-2 px-3 btn btn-outline-primary"
+          %>
+        <% end %>
+      <% end %>
+    </div>
 <% end -%>
