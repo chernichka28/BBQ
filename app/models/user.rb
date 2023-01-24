@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
     # Если не нашёлся, достаём провайдера, айдишник и урл
     provider = access_token.provider
-    url = "google/#{email}"
+    url = access_token.extra.raw_info.html_url
     username = access_token.info.name
 
     # Теперь ищем в базе запись по провайдеру и урлу
@@ -48,7 +48,7 @@ class User < ApplicationRecord
 
     # Если не нашёлся, достаём провайдера, айдишник и урл
     provider = access_token.provider
-    url = access_token.extra.raw_info.profile
+    url = "google/#{email}"
     username = access_token.info.name
 
     # Теперь ищем в базе запись по провайдеру и урлу
