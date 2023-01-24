@@ -4,13 +4,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_google_oauth(request.env["omniauth.auth"])
     # Если юзер есть, то логиним и редиректим на его страницу
     if @user.persisted?
-      flash[:notice] = I18n.t("devise.omniauth_callbacks.success", kind: "Vkontakte")
+      flash[:notice] = I18n.t("devise.omniauth_callbacks.success", kind: "Google")
       sign_in_and_redirect @user, event: :authentication
     # Если неудачно, то выдаём ошибку и редиректим на главную
     else
       flash[:error] = I18n.t(
         "devise.omniauth_callbacks.failure",
-        kind: "Vkontakte",
+        kind: "Google",
         reason: "authentication error"
       )
 
