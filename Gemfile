@@ -21,9 +21,9 @@ gem "dotenv-rails"
 gem "pundit"
 gem "resque", "~> 2.4"
 gem "omniauth"
-gem 'omniauth-rails_csrf_protection'
+gem "omniauth-rails_csrf_protection"
 gem "omniauth-github"
-gem "omniauth-vkontakte"
+gem "omniauth-google-oauth2"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 

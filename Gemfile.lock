@@ -220,14 +220,17 @@ GEM
     omniauth-github (2.0.1)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8)
+    omniauth-google-oauth2 (1.1.1)
+      jwt (>= 2.0)
+      oauth2 (~> 2.0.6)
+      omniauth (~> 2.0)
+      omniauth-oauth2 (~> 1.8.0)
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
       omniauth (~> 2.0)
     omniauth-rails_csrf_protection (1.0.1)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
-    omniauth-vkontakte (1.8.0)
-      omniauth-oauth2 (>= 1.5, <= 1.8.0)
     orm_adapter (0.5.0)
     pg (1.4.5)
     pkg-config (1.5.1)
@@ -396,8 +399,8 @@ DEPENDENCIES
   net-ssh (>= 6.0.2)
   omniauth
   omniauth-github
+  omniauth-google-oauth2
   omniauth-rails_csrf_protection
-  omniauth-vkontakte
   pg
   puma (~> 5.0)
   pundit

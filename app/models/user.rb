@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable,
-    :omniauthable, omniauth_providers: %i[github vkontakte]
+    :omniauthable, omniauth_providers: %i[github google_oauth2]
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
@@ -38,7 +38,7 @@ class User < ApplicationRecord
     end
   end
 
-  def self.find_for_vkontakte_oauth(access_token)
+  def self.find_for_google_oauth(access_token)
     email = access_token.info.email
     user = where(email: email).first
 
@@ -47,7 +47,7 @@ class User < ApplicationRecord
 
     # Если не нашёлся, достаём провайдера, айдишник и урл
     provider = access_token.provider
-    url = access_token.info.urls
+    url = access_token.info.urls.google
     username = access_token.info.name
 
     # Теперь ищем в базе запись по провайдеру и урлу

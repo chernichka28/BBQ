@@ -1,7 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  def vkontakte
+  def google_oauth2
     # Дёргаем метод модели, который найдёт пользователя
-    @user = User.find_for_vkontakte_oauth(request.env["omniauth.auth"])
+    @user = User.find_for_google_oauth(request.env["omniauth.auth"])
     # Если юзер есть, то логиним и редиректим на его страницу
     if @user.persisted?
       flash[:notice] = I18n.t("devise.omniauth_callbacks.success", kind: "Vkontakte")

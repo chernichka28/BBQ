@@ -21,8 +21,8 @@
             method: :post,
             class: "col-2 my-1 px-3 btn btn-outline-primary"
           %>
-        <% when :vkontakte %>
-          <%= button_to content_tag(:i, "", class: "icon-vk"), 
+        <% when :google_oauth2 %>
+          <%= button_to content_tag(:i, "", class: "bi bi-google"), 
             omniauth_authorize_path(resource_name, provider),
             data: { turbo: false },
             method: :post,
