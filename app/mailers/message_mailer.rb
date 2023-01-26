@@ -11,6 +11,7 @@ class MessageMailer < ApplicationMailer
   def new_comment(comment:, email:)
     @comment = comment
     @event = comment.event
+    @event_url = event_url(@event)
 
     mail to: email, subject: default_i18n_subject(title: @event.title)
   end
