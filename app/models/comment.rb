@@ -3,9 +3,9 @@ class Comment < ApplicationRecord
   belongs_to :user, optional: true
 
   validates  :event, presence: true
-  validates :body, presence: true
+  validates :body, presence: true, length: {maximum: 120}
 
-  validates :user_name, presence: true, unless: -> { user.present? }
+  validates :user_name, presence: true, length: {maximum: 120}, unless: -> { user.present? }
 
   def user_name
     if user.present?
@@ -14,5 +14,4 @@ class Comment < ApplicationRecord
       super
     end
   end
-
 end
