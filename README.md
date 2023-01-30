@@ -1,24 +1,40 @@
-# README
+# BBQ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+Event management app in which you can create events, subscribe to them, comment on them, attach photos, restrict access to them.
 
-* Ruby version
+Carousel and viewer are organized for photogallery. Subscribers receive letters using mailer.
 
-* System dependencies
+GitHub and Google authentification is implemented.
 
-* Configuration
+Event places are displayed on the built-in Yandex.maps.
 
-* Database creation
+Realized in Ruby on Rails 7. 
 
-* Database initialization
+Language: Russian.
 
-* How to run the test suite
+## Launching
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Download or clone repo.
 
-* Deployment instructions
+2. Use your own credentials as in examples
+```
+cp config/database.yml.example config/database.yml
+cp .env.example .env
+```
+Don't forget about `master.key`!
 
-* ...
+3. Use bundler
+```
+bundle install
+```
+
+4. Create database
+```
+rails db:create
+```
+5. Run database migrations
+```
+rails db:migrate
+```
