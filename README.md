@@ -24,15 +24,21 @@
 ```
 bundle install
 ```
-3. Создаем БД
+
+3. Используйте свои данные для дополнительных сервисов и свой `master.key`
+```
+cp config/database.yml.example config/database.yml
+cp .env.example .env
+```
+4. Создаем БД
 ```
 rails db:create
 ```
-4. Миграции
+5. Миграции
 ```
 rails db:migrate
 ```
-5. Для запуска сервера
+6. Для запуска сервера
 ```
 rails s
 ```
