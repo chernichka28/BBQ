@@ -1,40 +1,40 @@
 # BBQ
 
-## Description
+## Описание
 
-Event management app in which you can create events, subscribe to them, comment on them, attach photos, restrict access to them.
+Сайт, который поможет организовать событие. Для каждого события есть свой раздел с комментариями, фотографиями и подписчиками, а ещё можно ограничить доступ к просмотру с помощью пин-кода.
 
-Carousel and viewer are organized for photogallery. Subscribers receive letters using mailer.
+Есть удобная фотогалерея. Подписчики полчуают рассылку по email, если кто-то оставил новый комментарий или фото.
 
-GitHub and Google authentification is implemented.
+Доступен вход с помощью GiHub и Google
 
-Event places are displayed on the built-in Yandex.maps.
+Место проведения отмечено на Яндекс карте.
 
-Realized in Ruby on Rails 7. 
+Создано на Ruby on Rails 7. 
 
-Language: Russian.
+## Пример работы
 
-## Launching
+[BBQ](http://bbq.borissoff.ru/)
 
-1. Download or clone repo.
+## Установка
 
-2. Use your own credentials as in examples
-```
-cp config/database.yml.example config/database.yml
-cp .env.example .env
-```
-Don't forget about `master.key`!
+1. Скачайте или склонируйте репозиторий
 
-3. Use bundler
+2. Bundler
 ```
 bundle install
 ```
-
-4. Create database
+3. Создаем БД
 ```
 rails db:create
 ```
-5. Run database migrations
+4. Миграции
 ```
 rails db:migrate
 ```
+5. Для запуска сервера
+```
+rails s
+```
+
+<sub>Учебный проект</sub>
