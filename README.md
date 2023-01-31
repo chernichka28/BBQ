@@ -1,24 +1,40 @@
-# README
+# BBQ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Описание
 
-Things you may want to cover:
+Сайт, который поможет организовать событие. Для каждого события есть свой раздел с комментариями, фотографиями и подписчиками, а ещё можно ограничить доступ к просмотру с помощью пин-кода.
 
-* Ruby version
+Есть удобная фотогалерея. Подписчики полчуают рассылку по email, если кто-то оставил новый комментарий или фото.
 
-* System dependencies
+Доступен вход с помощью GiHub и Google
 
-* Configuration
+Место проведения отмечено на Яндекс карте.
 
-* Database creation
+Создано на Ruby on Rails 7. 
 
-* Database initialization
+## Пример работы
 
-* How to run the test suite
+[BBQ](http://bbq.borissoff.ru/)
 
-* Services (job queues, cache servers, search engines, etc.)
+## Установка
 
-* Deployment instructions
+1. Скачайте или склонируйте репозиторий
 
-* ...
+2. Bundler
+```
+bundle install
+```
+3. Создаем БД
+```
+rails db:create
+```
+4. Миграции
+```
+rails db:migrate
+```
+5. Для запуска сервера
+```
+rails s
+```
+
+<sub>Учебный проект</sub>
