@@ -20,7 +20,7 @@
             </button>
           <% end %>
 
-          <% if current_user_can_edit?(photo) %>
+          <% if policy(photo).destroy? %>
             <%= button_to "", 
               event_photo_path(photo.event, photo), 
               method: :delete, 

@@ -12,7 +12,7 @@
   </p>
 
   <div class="col-1">
-    <% if current_user_can_edit?(comment) %>
+    <% if policy(comment).destroy? %>
       <%= button_to "", 
         event_comment_path(comment.event, comment), 
         method: :delete, 

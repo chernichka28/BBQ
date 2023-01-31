@@ -9,20 +9,17 @@ class PhotosController < ApplicationController
 
     if @new_photo.save
       PhotoNotifySubscribersJob.perform_later(@new_photo)
-      redirect_to @event, notice: I18n.t("controllers.photos.created")
+      redirect_to @event, notice: t("controllers.photos.created")
     else
-      render "events/show", alert: I18n.t("controllers.photos.error")
+      render "events/show", alert: t("controllers.photos.error")
     end
   end
 
   def destroy
-    message = {notice: I18n.t("controllers.photos.destroyed")}
+    message = {notice: t("controllers.photos.destroyed")}
 
-    if current_user_can_edit?(@photo)
-      @photo.destroy
-    else
-      message = {alert: I18n.t("controllers.photos.error")}
-    end
+    authorize @photo
+    @photo.destroy
 
     redirect_to @event, message
   end

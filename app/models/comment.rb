@@ -2,9 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  validates  :event, presence: true
   validates :body, presence: true, length: {maximum: 120}
-
   validates :user_name, presence: true, length: {maximum: 120}, unless: -> { user.present? }
 
   def user_name
