@@ -42,5 +42,3 @@ rails db:migrate
 ```
 rails s
 ```
-
-<sub>Учебный проект</sub>
