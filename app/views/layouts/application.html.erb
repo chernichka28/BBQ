@@ -13,7 +13,7 @@
     <%= javascript_include_tag "application" %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand navbar-light bg-light mb-5">
       <div class="container">
         <div class="collapse navbar-collapse">
@@ -59,4 +59,10 @@
       <%= yield %>
     </div>
   </body>
+
+  <footer class="footer mt-auto py-3 text-center">
+    <div class="container">
+      <a href="https://chernichka28.github.io/cv/" class="text-decoration-none">© Adygezalov Dmitry 2023</a>
+    </div>
+  </footer>
 </html>
