@@ -36,6 +36,13 @@ class ApplicationPolicy
     false
   end
 
+  def can_user_destroy?
+    return false if user.blank?
+
+    return true if record.user == user || record.event.user == user
+    false
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user

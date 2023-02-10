@@ -57,18 +57,18 @@
 
       </div>
       
-      <% if current_user.present? %>
+      <% if user_signed_in? %>
         <div class="event-photo-form">
           <%= render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build } %>
         </div>
       <% end %>
 
       <div class="event-comments buffer-top">
-        <%= render partial: 'comments/form',
+        <%= render partial: "comments/form",
           locals: { comment: @new_comment || @event.comments.build } %>
 
         <div class="buffer-both">
-          <%= render partial: 'comments/comment',
+          <%= render partial: "comments/comment",
             collection: @event.comments.except(@new_comment) %>
         </div>
       </div>

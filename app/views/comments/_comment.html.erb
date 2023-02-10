@@ -3,7 +3,7 @@
   <p class="col-10">
     <span>
       <% if comment.user.present? %>
-        <%= render partial: 'users/user', object: comment.user %>
+        <%= render partial: "users/user", object: comment.user %>
       <% else %>
         <em><strong><%= comment.user_name %></strong></em>
       <% end %>
@@ -21,7 +21,7 @@
           data: {
             turbo: false,
             controller: "confirmation",
-            action: 'submit->confirmation#confirm',
+            action: "submit->confirmation#confirm",
             confirmation_message_value: t("confirmation.messages.comment"),
           }
         }
