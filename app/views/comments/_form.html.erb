@@ -9,7 +9,7 @@
           <%= f.text_area :body, class: "form-control my-1" %>
         </div>
 
-        <% unless user_signed_in? %>
+        <% unless policy(comment).create? %>
             <div class="form-group">
               <i class="icon-user mx-1"></i>
               <%= f.label t("views.comment.user_name") %>
