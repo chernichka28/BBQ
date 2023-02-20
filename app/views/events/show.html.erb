@@ -64,8 +64,10 @@
       <% end %>
 
       <div class="event-comments buffer-top">
-        <%= render partial: "comments/form",
-          locals: { comment: @new_comment || @event.comments.build } %>
+        <% if policy(@new_comment).create? %>
+          <%= render partial: "comments/form",
+            locals: { comment: @new_comment || @event.comments.build } %>
+        <% end %>
 
         <div class="buffer-both">
           <%= render partial: "comments/comment",
@@ -93,7 +95,7 @@
           </div>
         <% end %>
 
-        <% unless policy(@event).edit? %>
+        <% if policy(@new_subscription).create? %>
           <div class="event-subscription-form">
             <h4><%= t("views.event.i_will_go") %></h4>
             <div>

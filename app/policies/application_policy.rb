@@ -17,7 +17,7 @@ class ApplicationPolicy
   end
 
   def create?
-    user.present?
+    false
   end
 
   def new?

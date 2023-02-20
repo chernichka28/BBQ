@@ -1,7 +1,7 @@
 <%= form_for [@event, subscription] do |f| %>
     <%= render partial: "partials/form_errors", locals: { model: subscription } %>
 
-    <% unless policy(subscription).create? %>
+    <% unless user_signed_in? %>
         <div class="form-group">
           <%= f.label t("views.subscription.name") %>
           <%= f.text_field :user_name, class: "form-control" %>
